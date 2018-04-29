@@ -9,17 +9,6 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 class ArticleController extends Controller
 {
     /**
-     * @Route("/article", name="article")
-     */
-    public function index()
-    {
-               
-        return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
-        ]);
-    }
-
-    /**
      * @Route("/article/{id}", name="article_show")
      */
     public function showArticle($id)
@@ -33,11 +22,22 @@ class ArticleController extends Controller
                 'No article found for id '.$id
             );
         }
-
-
-        // or render a template
-        // in the template, print things with {{ product.name }}
+        // return article render
         return $this->render('article/index.html.twig', ['article' => $article]);
+    }
+
+    /**
+     * @Route("/article/add", name="article_add")
+     */
+    public function addArticle(){
+        
+    }
+
+    /**
+     * @Route("/article/edit/{id}", name="article_edit")
+     */
+    public function editArticle($id){
+        
     }
   
 

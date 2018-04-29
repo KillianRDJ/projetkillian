@@ -5,4 +5,9 @@
 {% block body %}
     <h1>Bienvenue sur mon site</h1>
     Voici quelque articles !
+    <ul>
+    {% for articles in article %}
+        <li> Titre : {{ articles.title }} </br> Content : {{ articles.content }} <a href="/article/{{ articles.id }}">Voir l'article</a></li>
+    {% endfor %}
+    </ul>
 {% endblock %}
