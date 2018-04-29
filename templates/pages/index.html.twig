@@ -2,12 +2,20 @@
 
 {% block title %}Bienvenue sur mon site !{% endblock %}
 
-{% block body %}
+{% block body %} 
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
     <h1>Bienvenue sur mon site</h1>
     Voici quelque articles !
     <ul>
     {% for articles in article %}
-        <li> Titre : {{ articles.title }} </br> Content : {{ articles.content }} <a href="/article/{{ articles.id }}">Voir l'article</a></li>
+        <li>ID : {{ articles.id }} Titre : {{ articles.title }} </br> Content : {{ articles.content }} <a href="/article/{{ articles.id }}">Voir l'article</a> <a href="/article/edit/{{ articles.id }}">Modifier l'article</a> <a href="/article/delete/{{ articles.id }}">Supprimer l'article</a></li>
     {% endfor %}
     </ul>
+    <p><a href="/article/add/">Ajouter un article</a></p>
 {% endblock %}

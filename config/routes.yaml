@@ -1,3 +1,5 @@
 index:
    path: /
    controller: App\Controller\PagesController::index
+showArticle:
+    path: /article/
